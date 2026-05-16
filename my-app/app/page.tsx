@@ -1,3 +1,6 @@
+//f12を使うと開発者ツールがひらけてそこからスマホのサイズ感を確認できる
+//右上のパソコンとスマホのマークを押すとサイズが変更できる
+
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -6,55 +9,61 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
+
+//f12を使うと開発者ツールがひらけてそこからスマホのサイズ感を確認できる
 
 const menuItems = [
   {
-    title: "おすすめメニュー",
-    description: "人気の商品を確認できます。",
-    buttonText: "見る",
+    name: "大崎焼",
+    description: "秘伝オリジナルスパイスで病みつきな味に",
+    price: "¥399",
   },
   {
-    title: "注文フォーム",
-    description: "名前を入力して注文を始めます。",
-    buttonText: "注文する",
+    name: "長芋の鉄板焼き",
+    description: "トロトロの長芋にうずらの卵を添えて",
+    price: "¥399",
   },
   {
-    title: "店舗情報",
-    description: "営業時間やアクセスを確認できます。",
-    buttonText: "確認する",
+    name: "カタラーナアイス",
+    description: "〆に決めよう",
+    price: "¥399",
   },
 ];
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-zinc-50 p-8">
-      <div className="mx-auto max-w-5xl space-y-8">
-        <div className="space-y-2 text-center">
-          <h1 className="text-3xl font-bold">OSAKI　プロジェクト</h1>
-          <p className="text-zinc-600">
-            5月16日
+    <main className="min-h-screen bg-zinc-50 px-4 py-8">
+      <div className="mx-auto flex min-h-[calc(100vh-64px)] max-w-md flex-col">
+        <header className="mb-8 text-center">
+          <h1 className="text-4xl font-bold tracking-tight">OSAKIZOKU</h1>
+          <p className="mt-2 text-sm text-zinc-500">
+            399均一居酒屋
           </p>
-        </div>
+        </header>
 
-        <div className="mx-auto max-w-md">
-          <Input placeholder="名前を入力してください" />
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-3">
+        <section className="flex-1 space-y-4">
           {menuItems.map((item) => (
-            <Card key={item.title}>
-              <CardHeader>
-                <CardTitle>{item.title}</CardTitle>
-                <CardDescription>{item.description}</CardDescription>
-              </CardHeader>
+            <Card key={item.name} className="rounded-2xl">
+              <CardContent className="flex items-center justify-between gap-4 p-5">
+                <div className="space-y-1">
+                  <CardTitle className="text-lg">{item.name}</CardTitle>
+                  <CardDescription>{item.description}</CardDescription>
+                  <p className="font-semibold">{item.price}</p>
+                </div>
 
-              <CardContent>
-                <Button className="w-full">{item.buttonText}</Button>
+                <Button size="sm" className="shrink-0">
+                  追加する
+                </Button>
               </CardContent>
             </Card>
           ))}
-        </div>
+        </section>
+
+        <footer className="mt-8">
+        <Button className="h-14 w-full rounded-full bg-red-600 text-lg text-white hover:bg-red-700">
+            注文に進む
+          </Button>
+        </footer>
       </div>
     </main>
   );
