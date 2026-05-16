@@ -1,16 +1,13 @@
-//f12を使うと開発者ツールがひらけてそこからスマホのサイズ感を確認できる
-//右上のパソコンとスマホのマークを押すとサイズが変更できる
+// F12を使うと開発者ツールが開けて、そこからスマホのサイズ感を確認できます。
+// 右上のパソコンとスマホのマークを押すとサイズを変更できます。
 
 import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardDescription,
-  CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
-//f12を使うと開発者ツールがひらけてそこからスマホのサイズ感を確認できる
 
 const menuItems = [
   {
@@ -36,9 +33,7 @@ export default function Home() {
       <div className="mx-auto flex min-h-[calc(100vh-64px)] max-w-md flex-col">
         <header className="mb-8 text-center">
           <h1 className="text-4xl font-bold tracking-tight">OSAKIZOKU</h1>
-          <p className="mt-2 text-sm text-zinc-500">
-            399均一居酒屋
-          </p>
+          <p className="mt-2 text-sm text-zinc-500">399均一居酒屋</p>
         </header>
 
         <section className="flex-1 space-y-4">
@@ -60,7 +55,7 @@ export default function Home() {
         </section>
 
         <footer className="mt-8">
-        <Button className="h-14 w-full rounded-full bg-red-600 text-lg text-white hover:bg-red-700">
+          <Button className="h-14 w-full rounded-full bg-red-600 text-lg text-white hover:bg-red-700">
             注文に進む
           </Button>
         </footer>
